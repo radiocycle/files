@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Legacy Launcher
+Comment=Free Minecraft Launcher
+Exec=/usr/bin/LegacyLauncher/run.sh
+Icon=minecraft
+Terminal=false
+Type=Application
+Categories=Game;
+StartupWMClass=LegacyLauncher
