@@ -39,83 +39,83 @@ def get_named_platform() -> str:
     :return: Platform name
     """
     
-    disable_emoji = False
+    disable_emoji = False 
 
     with contextlib.suppress(Exception):
         if os.path.isfile("/proc/device-tree/model"):
             with open("/proc/device-tree/model") as f:
                 model = f.read()
                 if "Orange" in model:
-                    if getattr(self._mods[client_id].lookup("settings"), "config", {}).get("disable_emoji", True):
+                    if disable_emoji:
                         return f"{model}"
                     else:
                         return f"🍊 {model}"
 
                 if "Raspberry" in model:
-                    if getattr(self._mods[client_id].lookup("settings"), "config", {}).get("disable_emoji", True):
+                    if disable_emoji:
                         return f"{model}"
                     else:
                         return f"🍇 {model}"
 
     if IS_WSL:
-        if getattr(self._mods[client_id].lookup("settings"), "config", {}).get("disable_emoji", True):
+        if disable_emoji:
             return "WSL"
         else:
             return "🍀 WSL"
 
     if IS_WINDOWS:
-        if getattr(self._mods[client_id].lookup("settings"), "config", {}).get("disable_emoji", True):
+        if disable_emoji:
             return "Windows"
         else:
             return "💻 Windows"
 
     if IS_MACOS:
-        if getattr(self._mods[client_id].lookup("settings"), "config", {}).get("disable_emoji", True):
+        if disable_emoji:
             return "MacOS"
         else:
             return "🍏 MacOS"
 
     if IS_JAMHOST:
-        if getattr(self._mods[client_id].lookup("settings"), "config", {}).get("disable_emoji", True):
+        if disable_emoji:
             return "JamHost"
         else:
             return "🧃 JamHost"
 
     if IS_USERLAND:
-        if getattr(self._mods[client_id].lookup("settings"), "config", {}).get("disable_emoji", True):
+        if disable_emoji:
             return "UserLand"
         else:
             return "🐧 UserLand"
 
     if IS_PTERODACTYL:
-        if getattr(self._mods[client_id].lookup("settings"), "config", {}).get("disable_emoji", True):
+        if disable_emoji:
             return "Pterodactyl"
         else:
             return "🦅 Pterodactyl"
        
     if IS_HIKKAHOST:
-        if getattr(self._mods[client_id].lookup("settings"), "config", {}).get("disable_emoji", True):
+        if disable_emoji:
             return "HikkaHost"
         else:
             return "🌼 HikkaHost"
 
     if IS_DOCKER:
-        if getattr(self._mods[client_id].lookup("settings"), "config", {}).get("disable_emoji", True):
+        if disable_emoji:
             return "Docker"
         else:
             return "🐳 Docker"
 
     if IS_LAVHOST:
-        if getattr(self._mods[client_id].lookup("settings"), "config", {}).get("disable_emoji", True):
+        if disable_emoji:
             return f"lavHost {os.environ['LAVHOST']}"
         else:
             return f"✌️ lavHost {os.environ['LAVHOST']}"
     else:
-        if getattr(self._mods[client_id].lookup("settings"), "config", {}).get("disable_emoji", True):
+        if disable_emoji:
             return "VDS"
         else:
             return "💎 VDS"
-
+            
 
 def get_platform_emoji() -> str:
     """
